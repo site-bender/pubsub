@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
+    "lib": ["deno.window"],
+    "module": "ESNext",
+    "moduleResolution": "nodenext",
     "noEmit": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
   },
-  "include": ["./src"]
 }
