@@ -1,4 +1,4 @@
-import subscribers from "../subscribers"
+import subscribers from "../subscribers/mod.ts"
 
 export default function getSubscriberCount(
 	options: {

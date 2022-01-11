@@ -1,4 +1,4 @@
-import { hasSubscribers, subscribe, unsubscribe } from "../"
+import { hasSubscribers, subscribe, unsubscribe } from "../index.ts"
 
 describe("[hasSubscribers]", function () {
 	test("has subscribers from an empty cache is false", function () {

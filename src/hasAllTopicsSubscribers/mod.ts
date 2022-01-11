@@ -1,5 +1,5 @@
-import getSubscriberCount from "../getSubscriberCount"
-import { PUBSUB_ALL_TOPICS } from "../constants"
+import getSubscriberCount from "../getSubscriberCount/mod.ts"
+import { PUBSUB_ALL_TOPICS } from "../constants.ts"
 
 export default function hasAllTopicsSubscribers(
 	options: {

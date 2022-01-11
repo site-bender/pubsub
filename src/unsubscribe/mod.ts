@@ -1,5 +1,5 @@
-import not from "../utilities/not"
-import subscribers from "../subscribers"
+import not from "../utilities/not/mod.ts"
+import subscribers from "../subscribers/mod.ts"
 
 export default function unsubscribe(
 	token?: string,

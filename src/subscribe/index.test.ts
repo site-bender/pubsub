@@ -1,4 +1,4 @@
-import { subscribe } from "../"
+import { subscribe } from "../index.ts"
 
 describe("[subscribe]", function () {
 	test("it returns an error when not given the correct params", function () {

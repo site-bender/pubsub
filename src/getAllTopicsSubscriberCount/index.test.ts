@@ -3,7 +3,7 @@ import {
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../"
+} from "../index.ts"
 
 describe("[getAllTopicsSubscriberCount]", function () {
 	test("subscriber count from an empty cache is zero", function () {

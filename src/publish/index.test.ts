@@ -1,4 +1,4 @@
-import { Temporal } from "@js-temporal/polyfill"
+import { Temporal } from "https://cdn.skypack.dev/@js-temporal/polyfill?dts"
 import { publish, subscribe, subscribeToAllTopics, unsubscribe } from "../"
 
 describe("[publish]", function () {

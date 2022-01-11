@@ -1,7 +1,7 @@
-import { Temporal } from "@js-temporal/polyfill"
-import { nanoid } from "nanoid"
-import not from "../utilities/not"
-import subscribers from "../subscribers"
+import { Temporal } from "https://cdn.skypack.dev/@js-temporal/polyfill?dts"
+import { nanoid } from 'https://cdn.skypack.dev/nanoid?dts';
+import not from "../utilities/not/mod.ts"
+import subscribers from "../subscribers/mod.ts"
 
 export default function publish(
 	event: PubSubEvent,
