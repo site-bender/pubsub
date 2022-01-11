@@ -1,5 +1,5 @@
 import { subscribe } from "../"
-import { PUBSUB_ALL_TOPICS } from "./../constants"
+import { PUBSUB_ALL_TOPICS } from "../constants"
 
 export default function subscribeToAllTopics(
 	token: string,

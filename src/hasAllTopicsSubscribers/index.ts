@@ -1,5 +1,5 @@
 import getSubscriberCount from "../getSubscriberCount"
-import { PUBSUB_ALL_TOPICS } from "./../constants"
+import { PUBSUB_ALL_TOPICS } from "../constants"
 
 export default function hasAllTopicsSubscribers(
 	options: {

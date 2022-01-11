@@ -1,6 +1,6 @@
 import type { Temporal } from "@js-temporal/polyfill"
 import { publish } from ".."
-import { PUBSUB_ALL_TOPICS } from "./../constants"
+import { PUBSUB_ALL_TOPICS } from "../constants"
 
 export default function publishToAllTopicsOnly(
 	event: PubSubEvent,
