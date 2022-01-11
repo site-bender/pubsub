@@ -1,120 +1,119 @@
-import { getSubscriberCount, hasSubscribers, subscribe, unsubscribe } from "../"
+import { getSubscriberCount, hasSubscribers, subscribe, unsubscribe } from "../index.ts"
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
-describe("[unsubscribe]", function () {
-	test("it unsubscribes by topic and token", function () {
+	Deno.test("it unsubscribes by topic and token", function () {
 		const token = "jane"
 		const topic = "blue"
 
 		subscribe(token, () => null, { topic })
 		subscribe(token, () => null, { topic, once: true })
 
-		expect(hasSubscribers()).toBe(true)
+		assertEquals(hasSubscribers(), true)
 
 		unsubscribe(token, topic)
 
-		expect(hasSubscribers()).toBe(false)
+		assertEquals(hasSubscribers(), false)
 		unsubscribe()
 	})
 
-	test("it unsubscribes by topic and token only from once", function () {
+	Deno.test("it unsubscribes by topic and token only from once", function () {
 		const token = "jane"
 		const topic = "blue"
 
 		subscribe(token, () => null, { topic })
 		subscribe(token, () => null, { topic, once: true })
 
-		expect(getSubscriberCount()).toBe(2)
+		assertEquals(getSubscriberCount(), 2)
 
 		unsubscribe(token, topic, { onlyFromOnce: true })
 
-		expect(getSubscriberCount()).toBe(1)
+		assertEquals(getSubscriberCount(), 1)
 		unsubscribe()
 	})
 
-	test("it unsubscribes by token only", function () {
+	Deno.test("it unsubscribes by token only", function () {
 		const token = "jane"
 
 		subscribe(token, () => null, { topic: "blue" })
 		subscribe(token, () => null, { topic: "red" })
 		subscribe("julie", () => null, { topic: "red" })
 
-		expect(getSubscriberCount()).toBe(3)
+		assertEquals(getSubscriberCount(), 3)
 
 		unsubscribe(token)
 
-		expect(getSubscriberCount()).toBe(1)
+		assertEquals(getSubscriberCount(), 1)
 		unsubscribe()
 	})
 
-	test("it unsubscribes by token only from once", function () {
+	Deno.test("it unsubscribes by token only from once", function () {
 		const token = "jane"
 
 		subscribe(token, () => null, { topic: "blue" })
 		subscribe(token, () => null, { topic: "red", once: true })
 		subscribe("julie", () => null, { topic: "red" })
 
-		expect(getSubscriberCount()).toBe(3)
+		assertEquals(getSubscriberCount(), 3)
 
 		unsubscribe(token, undefined, { onlyFromOnce: true })
 
-		expect(getSubscriberCount()).toBe(2)
+		assertEquals(getSubscriberCount(), 2)
 		unsubscribe()
 	})
 
-	test("it unsubscribes by topic only", function () {
+	Deno.test("it unsubscribes by topic only", function () {
 		const topic = "green"
 
 		subscribe("jane", () => null, { topic })
 		subscribe("julie", () => null, { topic })
 		subscribe("julie", () => null, { topic: "yellow" })
 
-		expect(getSubscriberCount()).toBe(3)
+		assertEquals(getSubscriberCount(), 3)
 
 		unsubscribe(undefined, topic)
 
-		expect(getSubscriberCount()).toBe(1)
+		assertEquals(getSubscriberCount(), 1)
 		unsubscribe()
 	})
 
-	test("it unsubscribes by topic only from once", function () {
+	Deno.test("it unsubscribes by topic only from once", function () {
 		const topic = "green"
 
 		subscribe("jane", () => null, { topic })
 		subscribe("julie", () => null, { topic, once: true })
 		subscribe("julie", () => null, { topic: "yellow" })
 
-		expect(getSubscriberCount()).toBe(3)
+		assertEquals(getSubscriberCount(), 3)
 
 		unsubscribe(undefined, topic, { onlyFromOnce: true })
 
-		expect(getSubscriberCount()).toBe(2)
+		assertEquals(getSubscriberCount(), 2)
 		unsubscribe()
 	})
 
-	test("it unsubscribes from all", function () {
+	Deno.test("it unsubscribes from all", function () {
 		subscribe("jane", () => null, { topic: "red" })
 		subscribe("julie", () => null, { topic: "red" })
 		subscribe("jane", () => null, { topic: "blue", once: true })
 		subscribe("julie", () => null, { topic: "blue", once: true })
 
-		expect(getSubscriberCount()).toBe(4)
+		assertEquals(getSubscriberCount(), 4)
 
 		unsubscribe()
 
-		expect(hasSubscribers()).toBe(false)
+		assertEquals(hasSubscribers(), false)
 	})
 
-	test("it unsubscribes all only from once", function () {
+	Deno.test("it unsubscribes all only from once", function () {
 		subscribe("jane", () => null, { topic: "red" })
 		subscribe("julie", () => null, { topic: "red" })
 		subscribe("jane", () => null, { topic: "blue", once: true })
 		subscribe("julie", () => null, { topic: "blue", once: true })
 
-		expect(getSubscriberCount()).toBe(4)
+		assertEquals(getSubscriberCount(), 4)
 
 		unsubscribe(undefined, undefined, { onlyFromOnce: true })
 
-		expect(getSubscriberCount()).toBe(2)
+		assertEquals(getSubscriberCount(), 2)
 		unsubscribe()
 	})
-})

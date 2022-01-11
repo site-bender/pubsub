@@ -1,14 +1,15 @@
-import { Temporal } from "@js-temporal/polyfill"
+import { Temporal } from "https://cdn.skypack.dev/@js-temporal/polyfill?dts"
 import {
 	publish,
 	publishToAllTopicsOnly,
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../"
+} from "../index.ts"
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
-describe("[publishToAllTopicsOnly]", function () {
-	test("it publishes to All Topics only correctly", function () {
+
+	Deno.test("it publishes to All Topics only correctly", function () {
 		const id = "my-id"
 		const topic = "blue"
 		const eventName = "PUBLISHED"
@@ -40,21 +41,21 @@ describe("[publishToAllTopicsOnly]", function () {
 		const one = cbAllTopics.mock.calls[0][0]
 		const two = cb.mock.calls[0][0]
 
-		expect(t1 instanceof Temporal.ZonedDateTime).toBe(true)
-		expect(one.id.length).toBe(21)
-		expect(one.eventName).toBe(eventName)
-		expect(one.timestamp instanceof Temporal.ZonedDateTime).toBe(true)
-		expect(one.data).toEqual(data)
+		assertEquals(t1 instanceof Temporal.ZonedDateTime, true)
+		assertEquals(one.id.length, 21)
+		assertEquals(one.eventName, eventName)
+		assertEquals(one.timestamp instanceof Temporal.ZonedDateTime, true)
+		assertEquals(one.data, data)
 
-		expect(t2 instanceof Temporal.ZonedDateTime).toBe(true)
-		expect(two.id).toBe(id)
-		expect(two.eventName).toBe(eventName)
-		expect(two.timestamp instanceof Temporal.ZonedDateTime).toBe(true)
-		expect(two.data).toEqual(data)
+		assertEquals(t2 instanceof Temporal.ZonedDateTime, true)
+		assertEquals(two.id, id)
+		assertEquals(two.eventName, eventName)
+		assertEquals(two.timestamp instanceof Temporal.ZonedDateTime, true)
+		assertEquals(two.data, data)
 		unsubscribe()
 	})
 
-	test("it returns an error when no event name", function () {
+	Deno.test("it returns an error when no event name", function () {
 		const topic = "blue"
 		const data = {}
 
@@ -74,7 +75,6 @@ describe("[publishToAllTopicsOnly]", function () {
 			/* eslint-enable @typescript-eslint/ban-ts-comment */
 		) as Error
 
-		expect(err).toBeInstanceOf(Error)
-		expect(err.message).toBe("Published events must have a topic (event name).")
+		// assertEquals(err).toBeInstanceOf(Error)
+		assertEquals(err.message, "Published events must have a topic (event name).")
 	})
-})

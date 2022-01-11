@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "isolatedModules": true,
     "lib": ["deno.window"],
     "module": "ESNext",
     "moduleResolution": "nodenext",

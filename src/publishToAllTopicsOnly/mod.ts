@@ -1,6 +1,6 @@
 import type { Temporal } from "https://cdn.skypack.dev/@js-temporal/polyfill?dts"
-import { PUBSUB_ALL_TOPICS } from "../constants"
-import { publish } from ".."
+import { PUBSUB_ALL_TOPICS } from "../constants.ts"
+import { publish } from "../index.ts"
 
 export default function publishToAllTopicsOnly(
 	event: PubSubEvent,
