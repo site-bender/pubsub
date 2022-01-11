@@ -1,6 +1,22 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
 node_modules
-.DS_Store
+
+# Development
+.idea
+.code-workspace
+.vscode
+.history
+
+# Test
+*.local
+coverage
+
+# Production
 dist
 dist-ssr
-*.local
-.history
+
+# Misc
+.DS_Store
+
