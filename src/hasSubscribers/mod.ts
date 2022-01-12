@@ -1,10 +1,10 @@
-import getSubscriberCount from "../getSubscriberCount/mod.ts"
+import getSubscriberCount from "../getSubscriberCount/mod.ts";
 
 export default function hasSubscribers(
-	options: {
-		topic?: string
-		onlyFromOnce?: boolean
-	} = {},
+  options: {
+    topic?: string;
+    onlyFromOnce?: boolean;
+  } = {},
 ): boolean {
-	return Boolean(getSubscriberCount(options))
+  return Boolean(getSubscriberCount(options));
 }

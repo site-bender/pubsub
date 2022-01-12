@@ -12,6 +12,6 @@
     "sourceMap": true,
     "strict": true,
     "target": "ESNext",
-    "useDefineForClassFields": true,
-  },
+    "useDefineForClassFields": true
+  }
 }
