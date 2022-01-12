@@ -1,8 +1,8 @@
-import type {Subscribers} from "./types.ts"
+import {Topics} from "../types.ts";
 
-const subscribers: Subscribers = {
-	once: {},
-	always: {},
+const subscribers = {
+	once: {} as Topics,
+	always: {} as Topics,
 }
 
 export default subscribers
