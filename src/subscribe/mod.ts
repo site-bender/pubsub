@@ -1,5 +1,7 @@
 import not from "../utilities/not/mod.ts"
 import subscribers from "../subscribers/mod.ts"
+import type {PubSubEvent} from "../types.ts"
+import {Intl} from "./types.ts"
 
 const listFormatter = new Intl.ListFormat("en", {
 	style: "long",

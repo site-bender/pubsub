@@ -1,5 +1,6 @@
 import not from "../utilities/not/mod.ts"
 import subscribers from "../subscribers/mod.ts"
+import type {Topics} from "../types.ts"
 
 export default function unsubscribe(
 	token?: string,

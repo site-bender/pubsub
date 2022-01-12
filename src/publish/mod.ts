@@ -1,5 +1,6 @@
 import { Temporal } from "https://cdn.skypack.dev/@js-temporal/polyfill?dts"
 import { nanoid } from 'https://cdn.skypack.dev/nanoid?dts';
+import type {PubSubEvent} from "../types.ts"
 import not from "../utilities/not/mod.ts"
 import subscribers from "../subscribers/mod.ts"
 

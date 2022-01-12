@@ -1,40 +1,39 @@
 import { hasSubscribers, subscribe, unsubscribe } from "../index.ts"
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
-describe("[hasSubscribers]", function () {
-	test("has subscribers from an empty cache is false", function () {
-		expect(hasSubscribers()).toBe(false)
+	Deno.test("has subscribers from an empty cache is false", function () {
+		assertEquals(hasSubscribers(), false)
 	})
 
-	test("has subscribers from empty topic is false", function () {
+	Deno.test("has subscribers from empty topic is false", function () {
 		subscribe("bob", () => null, { topic: "red" })
 
-		expect(hasSubscribers({ topic: "blue" })).toBe(false)
+		assertEquals(hasSubscribers({ topic: "blue" }), false)
 		unsubscribe()
 	})
 
-	test("has subscribers from full topic is true", function () {
+	Deno.test("has subscribers from full topic is true", function () {
 		subscribe("bob", () => null, { topic: "red" })
 
-		expect(hasSubscribers({ topic: "red" })).toBe(true)
+		assertEquals(hasSubscribers({ topic: "red" }), true)
 		unsubscribe()
 	})
 
-	test("has subscribers from an empty once cache is false", function () {
+	Deno.test("has subscribers from an empty once cache is false", function () {
 		subscribe("bob", () => null, { topic: "red" })
 		subscribe("bill", () => null, { topic: "blue" })
 		subscribe("betty", () => null, { topic: "green", once: true })
 
-		expect(hasSubscribers({ topic: "red", onlyFromOnce: true })).toBe(false)
-		expect(hasSubscribers({ topic: "red" })).toBe(true)
+		assertEquals(hasSubscribers({ topic: "red", onlyFromOnce: true }), false)
+		assertEquals(hasSubscribers({ topic: "red" }), true)
 		unsubscribe()
 	})
 
-	test("has subscribers from a full once cache is true", function () {
+	Deno.test("has subscribers from a full once cache is true", function () {
 		subscribe("bob", () => null, { topic: "red", once: true })
 
-		expect(hasSubscribers({ topic: "red", onlyFromOnce: true })).toBe(true)
-		expect(hasSubscribers({ topic: "red" })).toBe(true)
-		expect(hasSubscribers({ topic: "red", onlyFromOnce: false })).toBe(false)
+		assertEquals(hasSubscribers({ topic: "red", onlyFromOnce: true }), true)
+		assertEquals(hasSubscribers({ topic: "red" }), true)
+		assertEquals(hasSubscribers({ topic: "red", onlyFromOnce: false }), false)
 		unsubscribe()
 	})
-})
