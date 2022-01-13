@@ -1,6 +1,6 @@
 import { Temporal } from "@js-temporal/polyfill"
 import { nanoid } from "nanoid"
-import not from "../../utilities/not"
+import not from "../utilities/not"
 import subscribers from "../subscribers"
 
 export default function publish(

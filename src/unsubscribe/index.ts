@@ -1,4 +1,4 @@
-import not from "../../utilities/not"
+import not from "../utilities/not"
 import subscribers from "../subscribers"
 
 export default function unsubscribe(
