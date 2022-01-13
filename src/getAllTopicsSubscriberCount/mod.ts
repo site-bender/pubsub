@@ -1,13 +1,13 @@
-import { PUBSUB_ALL_TOPICS } from "../constants.ts";
-import getSubscriberCount from "../getSubscriberCount/mod.ts";
+import { PUBSUB_ALL_TOPICS } from "../constants.ts"
+import getSubscriberCount from "../getSubscriberCount/mod.ts"
 
 export default function getAllTopicsSubscriberCount(
-  options: {
-    onlyFromOnce?: boolean;
-  } = {},
+	options: {
+		onlyFromOnce?: boolean
+	} = {},
 ): number {
-  return getSubscriberCount({
-    ...options,
-    topic: PUBSUB_ALL_TOPICS,
-  });
+	return getSubscriberCount({
+		...options,
+		topic: PUBSUB_ALL_TOPICS,
+	})
 }

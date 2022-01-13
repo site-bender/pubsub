@@ -23,26 +23,26 @@ Here are the associated types:
 
 ```ts
 type PubSubEvent = {
-  id?: string;
-  eventName: string;
-  timestamp?: Temporal.ZonedDateTime;
-  data?: {
-    [key: string]: unknown;
-  };
-};
+	id?: string
+	eventName: string
+	timestamp?: Temporal.ZonedDateTime
+	data?: {
+		[key: string]: unknown
+	}
+}
 
 type Subscriptions = {
-  [token: string]: (event: PubSubEvent) => void;
-};
+	[token: string]: (event: PubSubEvent) => void
+}
 
 type Topics = {
-  [topic: string]: Subscriptions;
-};
+	[topic: string]: Subscriptions
+}
 
 type Subscribers = {
-  once?: Topics;
-  always?: Topics;
-};
+	once?: Topics
+	always?: Topics
+}
 ```
 
 ## Subscribing
