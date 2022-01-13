@@ -1,5 +1,5 @@
-import unsubscribe from "../unsubscribe"
-import { PUBSUB_ALL_TOPICS } from "../constants"
+import { PUBSUB_ALL_TOPICS } from "../constants.ts"
+import unsubscribe from "../unsubscribe/mod.ts"
 
 export default function unsubscribeFromAllTopics(
 	token?: string,

@@ -1,5 +1,6 @@
-import not from "../utilities/not"
-import subscribers from "../subscribers"
+import subscribers from "../subscribers/mod.ts"
+import type { Topics } from "../types.ts"
+import not from "../utilities/not/mod.ts"
 
 export default function unsubscribe(
 	token?: string,
@@ -27,7 +28,7 @@ export default function unsubscribe(
 	}
 }
 
-function removeToken(token: string, subs: Topics): Topics {
+function removeToken (token: string, subs: Topics): Topics {
 	return Object.keys(subs).reduce((acc, key) => {
 		/* eslint-disable @typescript-eslint/no-unused-vars */
 		const { [token]: _ignore, ...rest } = subs[key]
@@ -40,7 +41,7 @@ function removeToken(token: string, subs: Topics): Topics {
 	}, {})
 }
 
-function unsubscribeAll(onlyFromOnce?: boolean): void {
+function unsubscribeAll (onlyFromOnce?: boolean): void {
 	if (onlyFromOnce || typeof onlyFromOnce === "undefined") {
 		subscribers.once = {}
 	}
@@ -50,7 +51,7 @@ function unsubscribeAll(onlyFromOnce?: boolean): void {
 	}
 }
 
-function unsubscribeByTopic(topic: string, onlyFromOnce?: boolean): void {
+function unsubscribeByTopic (topic: string, onlyFromOnce?: boolean): void {
 	if (onlyFromOnce || typeof onlyFromOnce === "undefined") {
 		/* eslint-disable @typescript-eslint/no-unused-vars */
 		const { [topic]: _once, ...otherOnce } = subscribers.once
@@ -68,7 +69,7 @@ function unsubscribeByTopic(topic: string, onlyFromOnce?: boolean): void {
 	}
 }
 
-function unsubscribeByToken(token: string, onlyFromOnce?: boolean): void {
+function unsubscribeByToken (token: string, onlyFromOnce?: boolean): void {
 	if (onlyFromOnce || typeof onlyFromOnce === "undefined") {
 		subscribers.once = removeToken(token, subscribers.once)
 	}
@@ -78,7 +79,7 @@ function unsubscribeByToken(token: string, onlyFromOnce?: boolean): void {
 	}
 }
 
-function unsubscribeByTopicAndToken(
+function unsubscribeByTopicAndToken (
 	topic: string,
 	token: string,
 	onlyFromOnce?: boolean,

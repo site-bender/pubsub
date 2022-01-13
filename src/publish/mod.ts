@@ -1,7 +1,8 @@
-import { Temporal } from "@js-temporal/polyfill"
 import { nanoid } from "nanoid"
-import not from "../utilities/not"
-import subscribers from "../subscribers"
+import { Temporal } from "temporal"
+import subscribers from "../subscribers/mod.ts"
+import type { PubSubEvent } from "../types.ts"
+import not from "../utilities/not/mod.ts"
 
 export default function publish(
 	event: PubSubEvent,
@@ -36,16 +37,16 @@ export default function publish(
 	} else {
 		Object.keys(subscribers.once).forEach((t) =>
 			Object.keys(subscribers.once[t]).forEach((key) =>
-				subscribers.once[t][key](fullEvent),
-			),
+				subscribers.once[t][key](fullEvent)
+			)
 		)
 
 		subscribers.once = {}
 
 		Object.keys(subscribers.always).forEach((t) =>
 			Object.keys(subscribers.always[t]).forEach((key) =>
-				subscribers.always[t][key](fullEvent),
-			),
+				subscribers.always[t][key](fullEvent)
+			)
 		)
 	}
 

@@ -1,51 +1,50 @@
+import { assertEquals } from "testing/asserts.ts"
 import {
 	hasAllTopicsSubscribers,
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../"
+} from "../index.ts"
 
-describe("[hasAllTopicsSubscribers]", function () {
-	test("has subscribers from an empty cache is false", function () {
-		subscribe("jane", () => null, { topic: "blue" })
+Deno.test("has subscribers from an empty cache is false", function() {
+	subscribe("jane", () => null, { topic: "blue" })
 
-		expect(hasAllTopicsSubscribers()).toBe(false)
-		unsubscribe()
-	})
+	assertEquals(hasAllTopicsSubscribers(), false)
+	unsubscribe()
+})
 
-	test("has subscribers from all topics cache is true", function () {
-		subscribeToAllTopics("bob", () => null)
+Deno.test("has subscribers from all topics cache is true", function() {
+	subscribeToAllTopics("bob", () => null)
 
-		expect(hasAllTopicsSubscribers()).toBe(true)
-		unsubscribe()
-	})
+	assertEquals(hasAllTopicsSubscribers(), true)
+	unsubscribe()
+})
 
-	test("has subscribers from an empty once cache is false", function () {
-		subscribeToAllTopics("bob", () => null)
+Deno.test("has subscribers from an empty once cache is false", function() {
+	subscribeToAllTopics("bob", () => null)
 
-		expect(hasAllTopicsSubscribers({ onlyFromOnce: true })).toBe(false)
-		expect(hasAllTopicsSubscribers()).toBe(true)
-		unsubscribe()
-	})
+	assertEquals(hasAllTopicsSubscribers({ onlyFromOnce: true }), false)
+	assertEquals(hasAllTopicsSubscribers(), true)
+	unsubscribe()
+})
 
-	test("has subscribers from all topics once cache is true", function () {
-		subscribeToAllTopics("sam", () => null, { once: true })
+Deno.test("has subscribers from all topics once cache is true", function() {
+	subscribeToAllTopics("sam", () => null, { once: true })
 
-		expect(hasAllTopicsSubscribers({ onlyFromOnce: true })).toBe(true)
-		unsubscribe()
-	})
+	assertEquals(hasAllTopicsSubscribers({ onlyFromOnce: true }), true)
+	unsubscribe()
+})
 
-	test("has subscribers from an empty always cache is false", function () {
-		subscribeToAllTopics("sam", () => null, { once: true })
+Deno.test("has subscribers from an empty always cache is false", function() {
+	subscribeToAllTopics("sam", () => null, { once: true })
 
-		expect(hasAllTopicsSubscribers({ onlyFromOnce: false })).toBe(false)
-		unsubscribe()
-	})
+	assertEquals(hasAllTopicsSubscribers({ onlyFromOnce: false }), false)
+	unsubscribe()
+})
 
-	test("has subscribers from all topics always cache is true", function () {
-		subscribeToAllTopics("bob", () => null)
+Deno.test("has subscribers from all topics always cache is true", function() {
+	subscribeToAllTopics("bob", () => null)
 
-		expect(hasAllTopicsSubscribers({ onlyFromOnce: false })).toBe(true)
-		unsubscribe()
-	})
+	assertEquals(hasAllTopicsSubscribers({ onlyFromOnce: false }), true)
+	unsubscribe()
 })

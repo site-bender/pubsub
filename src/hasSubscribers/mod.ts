@@ -1,4 +1,4 @@
-import getSubscriberCount from "../getSubscriberCount"
+import getSubscriberCount from "../getSubscriberCount/mod.ts"
 
 export default function hasSubscribers(
 	options: {

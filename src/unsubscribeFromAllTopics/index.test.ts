@@ -1,22 +1,21 @@
+import { assertEquals } from "testing/asserts.ts"
 import {
 	getSubscriberCount,
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
 	unsubscribeFromAllTopics,
-} from "../"
+} from "../index.ts"
 
-describe("[unsubscribeFromAllTopics]", function () {
-	test("it unsubscribes without token", function () {
-		subscribe("jane", () => null, { topic: "blue" })
-		subscribe("jane", () => null, { topic: "red" })
-		subscribeToAllTopics("julie", () => null)
+Deno.test("it unsubscribes without token", function() {
+	subscribe("jane", () => null, { topic: "blue" })
+	subscribe("jane", () => null, { topic: "red" })
+	subscribeToAllTopics("julie", () => null)
 
-		expect(getSubscriberCount()).toBe(3)
+	assertEquals(getSubscriberCount(), 3)
 
-		unsubscribeFromAllTopics()
+	unsubscribeFromAllTopics()
 
-		expect(getSubscriberCount()).toBe(2)
-		unsubscribe()
-	})
+	assertEquals(getSubscriberCount(), 2)
+	unsubscribe()
 })
