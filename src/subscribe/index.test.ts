@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts"
+import { assertEquals } from "testing/asserts.ts"
 import { subscribe } from "../index.ts"
 
 Deno.test("it returns an error when not given the correct params", function() {

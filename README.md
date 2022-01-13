@@ -2,12 +2,14 @@
 
 A simple pub-sub event bus in TypeScript.
 
-## Test 
+## Test
+
 ```bash
 make test
 ```
 
 ## Format
+
 ```bash
 make fmt
 ```

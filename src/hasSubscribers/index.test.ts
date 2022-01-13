@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts"
+import { assertEquals } from "testing/asserts.ts"
 import { hasSubscribers, subscribe, unsubscribe } from "../index.ts"
 
 Deno.test("has subscribers from an empty cache is false", function() {

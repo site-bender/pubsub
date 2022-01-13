@@ -1,5 +1,5 @@
-import { Temporal } from "https://cdn.skypack.dev/@js-temporal/polyfill?dts"
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts"
+import { assertEquals } from "testing/asserts.ts"
+import { Temporal } from "temporal"
 import {
 	publish,
 	publishToAllTopicsOnly,
