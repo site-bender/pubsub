@@ -1,5 +1,5 @@
-import { assertEquals } from "testing/asserts.ts"
 import { Temporal } from "temporal"
+import { assertEquals } from "testing/asserts.ts"
 import {
 	publish,
 	publishToAllTopicsOnly,
