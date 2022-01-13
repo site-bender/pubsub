@@ -1,6 +1,6 @@
-test: 
-	deno test
+test:
+	deno test --import-map=import_map.json
 
-fmt: 
+fmt:
 	dprint fmt
 
