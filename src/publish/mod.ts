@@ -2,7 +2,7 @@ import { nanoid } from "nanoid"
 import { Temporal } from "temporal"
 import subscribers from "../subscribers/mod.ts"
 import type { PubSubEvent } from "../types.ts"
-import not from "../utilities/not/mod.ts"
+import not from "../utilities/operations/not/mod.ts"
 
 export default function publish(
 	event: PubSubEvent,
