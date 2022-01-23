@@ -4,7 +4,7 @@ import {
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../index.ts"
+} from "../mod.ts"
 
 Deno.test("has subscribers from an empty cache is false", function() {
 	subscribe("jane", () => null, { topic: "blue" })

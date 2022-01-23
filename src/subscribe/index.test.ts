@@ -1,5 +1,5 @@
 import { assertEquals } from "testing/asserts.ts"
-import { subscribe } from "../index.ts"
+import { subscribe } from "../mod.ts"
 
 Deno.test("it returns an error when not given the correct params", function() {
 	/* eslint-disable @typescript-eslint/ban-ts-comment */

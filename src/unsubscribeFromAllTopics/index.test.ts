@@ -5,7 +5,7 @@ import {
 	subscribeToAllTopics,
 	unsubscribe,
 	unsubscribeFromAllTopics,
-} from "../index.ts"
+} from "../mod.ts"
 
 Deno.test("it unsubscribes without token", function() {
 	subscribe("jane", () => null, { topic: "blue" })

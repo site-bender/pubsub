@@ -6,7 +6,7 @@ import {
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../index.ts"
+} from "../mod.ts"
 import type { PubSubEvent } from "../types.ts"
 
 Deno.test("it publishes to All Topics only correctly", function() {
