@@ -1,5 +1,5 @@
 import { PUBSUB_ALL_TOPICS } from "../constants.ts"
-import { subscribe } from "../index.ts"
+import { subscribe } from "../mod.ts"
 import type { PubSubEvent } from "../types.ts"
 
 export default function subscribeToAllTopics(

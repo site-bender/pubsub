@@ -5,7 +5,7 @@ import {
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../index.ts"
+} from "../mod.ts"
 import { PubSubEvent } from "../types.ts"
 
 Deno.test("it returns an error when no event name", function() {

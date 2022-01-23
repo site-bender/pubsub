@@ -1,5 +1,5 @@
 import { assertEquals } from "testing/asserts.ts"
-import { hasSubscribers, subscribe, unsubscribe } from "../index.ts"
+import { hasSubscribers, subscribe, unsubscribe } from "../mod.ts"
 
 Deno.test("has subscribers from an empty cache is false", function() {
 	assertEquals(hasSubscribers(), false)

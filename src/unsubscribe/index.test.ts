@@ -4,7 +4,7 @@ import {
 	hasSubscribers,
 	subscribe,
 	unsubscribe,
-} from "../index.ts"
+} from "../mod.ts"
 
 Deno.test("it unsubscribes by topic and token", function() {
 	const token = "jane"

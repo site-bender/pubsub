@@ -4,7 +4,7 @@ import {
 	subscribe,
 	subscribeToAllTopics,
 	unsubscribe,
-} from "../index.ts"
+} from "../mod.ts"
 
 Deno.test("subscriber count from an empty cache is zero", function() {
 	assertEquals(getSubscriberCount(), 0)
