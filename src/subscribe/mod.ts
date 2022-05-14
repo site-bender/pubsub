@@ -1,6 +1,6 @@
 import subscribers from "../subscribers/mod.ts"
 import type { PubSubEvent } from "../types.ts"
-import not from "../utilities/not/mod.ts"
+import not from "../utilities/operations/not/mod.ts"
 
 declare namespace Intl {
 	type ListType = "conjunction" | "disjunction" | "unit"

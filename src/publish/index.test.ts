@@ -7,6 +7,7 @@ import {
 	unsubscribe,
 } from "../mod.ts"
 import { PubSubEvent } from "../types.ts"
+import callback from "../utilities/mocks/callback/mod.ts"
 
 Deno.test("it returns an error when no event name", function() {
 	const topic = "blue"
@@ -33,15 +34,8 @@ Deno.test("it publishes correctly with topic", function() {
 		color: "cyan",
 	}
 
-	// TODO: Find a better way to create a mocked callback
-	let cbArgs = [] as PubSubEvent[]
-	const cb = (event: PubSubEvent) => {
-		cbArgs.push(event)
-	}
-	let cbOnceExecuteCount = 0
-	const cbOnce = (event: PubSubEvent) => {
-		cbOnceExecuteCount++
-	}
+	const cb = callback<PubSubEvent>()
+	const cbOnce = callback<PubSubEvent>()
 
 	subscribe("jane", cb, { topic })
 	subscribe("julie", cbOnce, { topic, once: true })
@@ -78,8 +72,8 @@ Deno.test("it publishes correctly with topic", function() {
 		},
 	)
 
-	const one = cbArgs[0]
-	const two = cbArgs[1]
+	const one = cb.state.argsHistory[0]
+	const two = cb.state.argsHistory[1]
 
 	assertEquals(one?.id?.length, 21)
 	assertEquals(one.eventName, eventName)
@@ -91,7 +85,7 @@ Deno.test("it publishes correctly with topic", function() {
 	assertEquals(two.timestamp instanceof Temporal.ZonedDateTime, true)
 	assertEquals(two.data, data)
 
-	assertEquals(cbOnceExecuteCount, 1)
+	assertEquals(cbOnce.state.executionTimes, 1)
 	unsubscribe()
 })
 
@@ -102,14 +96,8 @@ Deno.test("it publishes correctly without topic", function() {
 		color: "cyan",
 	}
 	// TODO: Find a better way to create a mocked callback
-	const cbArgs = [] as PubSubEvent[]
-	const cb = (event: PubSubEvent) => {
-		cbArgs.push(event)
-	}
-	let cbOnceExecuteCount = 0
-	const cbOnce = () => {
-		cbOnceExecuteCount++
-	}
+	const cb = callback<PubSubEvent>()
+	const cbOnce = callback<PubSubEvent>()
 
 	subscribeToAllTopics("jane", cb, {})
 	subscribeToAllTopics("julie", cbOnce, { once: true })
@@ -128,8 +116,8 @@ Deno.test("it publishes correctly without topic", function() {
 		data,
 	})
 
-	const one = cbArgs[0]
-	const two = cbArgs[1]
+	const one = cb.state.argsHistory[0]
+	const two = cb.state.argsHistory[1]
 
 	assertEquals(one?.id?.length, 21)
 	assertEquals(one.eventName, eventName)
