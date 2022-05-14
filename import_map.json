@@ -1,0 +1,7 @@
+{
+	"imports": {
+		"testing/": "https://deno.land/std/testing/",
+		"temporal": "https://cdn.skypack.dev/@js-temporal/polyfill?dts",
+		"nanoid": "https://cdn.skypack.dev/nanoid?dts"
+	}
+}

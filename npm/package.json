@@ -1,0 +1,26 @@
+{
+  "module": "./esm/mod.js",
+  "types": "./types/mod.d.ts",
+  "name": "@nathantinker/pubsub",
+  "version": "0.1.0",
+  "description": "A simple pub-sub event bus in TypeScript.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/site-bender/pubsub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/site-bender/pubsub/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./esm/mod.js",
+      "types": "./types/mod.d.ts"
+    }
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.3.0",
+    "nanoid": "^3.2.0"
+  },
+  "devDependencies": {}
+}
