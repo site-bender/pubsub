@@ -1,7 +1,6 @@
-import generateShortId from "../utilities/generateShortId"
 import { Temporal } from "temporal-polyfill"
 import subscribers from "../subscribers"
-import not from "../utilities/not"
+import { u } from "@sitebender/fp"
 
 type PublishF = (
 	event: PubSubEvent,
@@ -10,14 +9,14 @@ type PublishF = (
 const publish: PublishF =
 	event =>
 	(options = {}) => {
-		if (not(event?.eventName)) {
+		if (u.not(event?.eventName)) {
 			return new Error(`Published events must have a topic (event name).`)
 		}
 
 		const { topic } = options
 		const timestamp = Temporal.Now.zonedDateTimeISO()
 		const fullEvent = {
-			id: generateShortId(),
+			id: u.generateShortId(),
 			...event,
 			timestamp,
 		}

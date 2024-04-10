@@ -1,5 +1,5 @@
 import subscribers from "../../subscribers"
-import not from "../../utilities/not"
+import { u } from "@sitebender/fp"
 
 type UnsubscribeByTopicAndTokenF = (
 	topic: string,
@@ -12,7 +12,7 @@ const unsubscribeByTopicAndToken: UnsubscribeByTopicAndTokenF =
 			subscribers.once[topic] = otherOnce
 		}
 
-		if (not(onlyFromOnce) || typeof onlyFromOnce === "undefined") {
+		if (u.not(onlyFromOnce) || typeof onlyFromOnce === "undefined") {
 			const { [token]: _always, ...otherAlways } = subscribers.always[topic]
 
 			subscribers.always[topic] = otherAlways

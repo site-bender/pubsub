@@ -1,5 +1,5 @@
 import subscribers from "../../subscribers"
-import not from "../../utilities/not"
+import { u } from "@sitebender/fp"
 
 type UnsubscribeAllF = (onlyFromOnce?: boolean) => void
 
@@ -8,7 +8,7 @@ const unsubscribeAll: UnsubscribeAllF = onlyFromOnce => {
 		subscribers.once = {}
 	}
 
-	if (not(onlyFromOnce) || typeof onlyFromOnce === "undefined") {
+	if (u.not(onlyFromOnce) || typeof onlyFromOnce === "undefined") {
 		subscribers.always = {}
 	}
 }

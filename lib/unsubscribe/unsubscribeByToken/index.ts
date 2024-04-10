@@ -1,6 +1,6 @@
 import removeToken from "../removeToken"
 import subscribers from "../../subscribers"
-import not from "../../utilities/not"
+import { u } from "@sitebender/fp"
 
 type UnsubscribeByTokenF = (token: string) => (onlyFromOnce?: boolean) => void
 
@@ -9,7 +9,7 @@ const unsubscribeByToken: UnsubscribeByTokenF = token => onlyFromOnce => {
 		subscribers.once = removeToken(token)(subscribers.once)
 	}
 
-	if (not(onlyFromOnce) || typeof onlyFromOnce === "undefined") {
+	if (u.not(onlyFromOnce) || typeof onlyFromOnce === "undefined") {
 		subscribers.always = removeToken(token)(subscribers.always)
 	}
 }
