@@ -1,6 +1,6 @@
 {
 	"name": "@sitebender/pubsub",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "PubSub module for communication between modules.",
 	"license": "MIT",
 	"author": "Charles F. Munat <coder@craft-code.dev>",
@@ -10,7 +10,6 @@
 		"lib",
 		"src"
 	],
-	"private": true,
 	"scripts": {
 		"build": "tsc && vite build",
 		"bump": "pnpm version patch --force",
@@ -48,7 +47,7 @@
 		"stylelint": "^16.3.1",
 		"stylelint-config-standard": "^36.0.0",
 		"temporal-polyfill": "^0.2.3",
-		"typescript": "^5.4.3",
+		"typescript": "^5.4.5",
 		"vite": "^5.2.8",
 		"vitest": "^1.4.0",
 		"vitest-localstorage-mock": "^0.1.2"
