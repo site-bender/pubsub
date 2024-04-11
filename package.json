@@ -1,6 +1,6 @@
 {
 	"name": "@sitebender/pubsub",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "PubSub module for communication between modules.",
 	"license": "MIT",
 	"author": "Charles F. Munat <coder@craft-code.dev>",
@@ -11,7 +11,8 @@
 		"src"
 	],
 	"scripts": {
-		"build": "tsc && vite build",
+		"astro": "astro",
+		"build": "tsc && astro build",
 		"bump": "pnpm version patch --force",
 		"bump:major": "pnpm version major --force",
 		"bump:minor": "pnpm version minor --force",
@@ -26,6 +27,7 @@
 		"preview": "astro preview",
 		"pub": "npm publish --access=public",
 		"push": "git add -A && pnpm bump && git push",
+		"start": "astro dev",
 		"test": "vitest",
 		"test:cov": "vitest --coverage.exclude=temp/** --coverage"
 	},
