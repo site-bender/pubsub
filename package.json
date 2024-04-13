@@ -1,6 +1,6 @@
 {
 	"name": "@sitebender/pubsub",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "PubSub module for communication between modules.",
 	"license": "MIT",
 	"author": "Charles F. Munat <coder@craft-code.dev>",
@@ -26,7 +26,7 @@
 		"test:cov": "vitest --coverage.exclude=temp/** --coverage"
 	},
 	"devDependencies": {
-		"@sitebender/fp": "^0.0.12",
+		"@sitebender/fp": "^0.0.13",
 		"@types/node": "^20.12.4",
 		"@vitest/coverage-v8": "^1.5.0",
 		"fast-check": "^3.17.1",
