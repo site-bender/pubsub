@@ -1,5 +1,5 @@
-import { PUBSUB_ALL_TOPICS } from "../constants.ts"
-import unsubscribe from "../unsubscribe/index.ts"
+import { PUBSUB_ALL_TOPICS } from "../constants"
+import unsubscribe from "../unsubscribe"
 
 type UnsubscribeFromAllTopicsF = (token?: string) => (options?: Options) => void
 

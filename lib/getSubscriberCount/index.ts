@@ -1,4 +1,4 @@
-import subscribers from "../subscribers/index.ts"
+import subscribers from "../subscribers"
 
 type GetSubscriberCountF = (options: Options) => number
 
